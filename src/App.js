@@ -18,15 +18,15 @@ function App() {
     if (loading) {
       fetchData();
     }
-  }, [loading]);
+  }, [loading, query]);
 
   return (
     <div className="App">
       <h1>Pokedex</h1>
-      {loading && <span className="loading"></span>}
+      {loading && <span className="loader"></span>}
       {!loading && (
         <>
-          <Controls query={query} setQuery={setQuery} setLoad={setLoading} />
+          <Controls query={query} setQuery={setQuery} setLoading={setLoading} />
           <PokeList pokemon={pokemon} />
         </>
       )}
