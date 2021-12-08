@@ -1,30 +1,32 @@
 import { useState, useEffect } from 'react';
 import { getPokemon } from './services/pokemon';
 import PokeList from './components/PokeList';
+import Controls from './components/Controls';
 import './App.css';
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
   const [query, setQuery] = useState('');
-  const [load, setLoad] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getPokemon(query);
       setPokemon(data.results);
-      setLoad(false);
+      setLoading(false);
     };
-    if (load) {
+    if (loading) {
       fetchData();
     }
-  }, []);
+  }, [loading]);
 
   return (
     <div className="App">
       <h1>Pokedex</h1>
-      {load && <span className="loading"></span>}
-      {!load && (
+      {loading && <span className="loading"></span>}
+      {!loading && (
         <>
+          <Controls query={query} setQuery={setQuery} setLoad={setLoading} />
           <PokeList pokemon={pokemon} />
         </>
       )}
