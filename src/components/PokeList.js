@@ -1,6 +1,14 @@
 import React from 'react';
 
-export default function PokeList({ pokemon }) {
+export default function PokeList({ pokemon, setLoading, setPage }) {
+  const handleClick = () => {
+    setLoading(true);
+    setPage((prevState) => ++prevState);
+  };
+  const handleClick2 = () => {
+    setLoading(true);
+    setPage((prevState) => --prevState);
+  };
   return (
     <div>
       {pokemon.map((pokemons) => (
@@ -9,6 +17,8 @@ export default function PokeList({ pokemon }) {
           {pokemons.pokemon}
         </p>
       ))}
+      <button onClick={handleClick2}>Previous Page</button>
+      <button onClick={handleClick}>Next Page</button>
     </div>
   );
 }
