@@ -13,8 +13,12 @@ export default function PokeList({ pokemon, setLoading, setPage }) {
     <div>
       {pokemon.map((pokemons) => (
         <p key={pokemons.id}>
+          <span>{pokemons.pokemon} </span>
+          <span>Type: {pokemons.type_1} </span>
           <img src={pokemons.url_image} />
-          {pokemons.pokemon}
+          <span>HP: {pokemons.hp} </span>
+          <span>ATK: {pokemons.attack} </span>
+          <span>DEF: {pokemons.defense} </span>
         </p>
       ))}
       <button onClick={handleClick2}>Previous Page</button>

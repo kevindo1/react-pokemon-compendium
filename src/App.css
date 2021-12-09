@@ -120,3 +120,8 @@ body {
 img {
   height: 150px;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+}
