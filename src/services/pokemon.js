@@ -13,6 +13,7 @@ export async function getPokemon(query, order, page, selectedTypes) {
     `https://pokedex-alchemy.herokuapp.com/api/pokedex?${params.toString()}`
   );
   const data = await response.json();
+
   return data;
 }
 
