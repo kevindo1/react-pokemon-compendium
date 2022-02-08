@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <div className="App">
       <h1>Pokedex</h1>
-      {loading && <span className="loader"></span>}
+      {loading && <span></span>}
       {!loading && (
         <>
           <Controls
